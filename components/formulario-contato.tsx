@@ -6,10 +6,8 @@ import {
   validarFormulario,
   formularioValido,
 } from "@/lib/validacao-contato";
-import type { ErrosContato } from "@/lib/validacao-contato";
 
 const VAZIO: CamposContato = { nome: "", email: "", mensagem: "" };
-const SEM_ERRO: ErrosContato = { nome: null, email: null, mensagem: null };
 
 export function FormularioContato() {
   const [campos, setCampos] = useState<CamposContato>(VAZIO);
