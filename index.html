@@ -125,9 +125,26 @@
     </main>
 
     <footer class="rodape">
-      <div class="container">
-        <span>Vitrine · protótipo de demonstração</span>
-        <span class="rodape-nota">Números e conteúdo fictícios.</span>
+      <div class="container rodape-conteudo">
+        <!-- Inscrição de novidades. Hoje NÃO valida nada: o botão fica sempre
+             habilitado e o clique só limpa o campo. É o alvo do trabalho. -->
+        <form class="inscricao" onsubmit="return false">
+          <label for="email-inscricao">Receba novidades da Vitrine</label>
+          <div class="inscricao-linha">
+            <input
+              id="email-inscricao"
+              type="email"
+              placeholder="voce@empresa.com.br"
+              autocomplete="email"
+            />
+            <button id="btn-inscrever" type="submit">Inscrever</button>
+          </div>
+          <p id="erro-email" class="inscricao-erro" hidden></p>
+        </form>
+        <div class="rodape-fim">
+          <span>Vitrine · protótipo de demonstração</span>
+          <span class="rodape-nota">Números e conteúdo fictícios.</span>
+        </div>
       </div>
     </footer>
   </body>

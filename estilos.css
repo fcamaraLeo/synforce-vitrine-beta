@@ -147,8 +147,32 @@ a { color: inherit; }
 .chamada p { margin: 0 0 28px; opacity: 0.85; font-size: 17px; }
 
 /* ── Rodapé ───────────────────────────────────────────────────────────── */
-.rodape { border-top: 1px solid var(--borda); padding: 28px 0; }
-.rodape .container { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; color: var(--texto-suave); font-size: 14px; }
+.rodape { border-top: 1px solid var(--borda); padding: 32px 0; }
+.rodape-conteudo { display: flex; flex-direction: column; gap: 24px; }
+.inscricao label { display: block; font-weight: 600; font-size: 15px; margin-bottom: 10px; }
+.inscricao-linha { display: flex; gap: 8px; max-width: 420px; }
+.inscricao-linha input {
+  flex: 1;
+  padding: 11px 14px;
+  border: 1.5px solid var(--borda);
+  border-radius: 7px;
+  font-size: 15px;
+  font-family: inherit;
+}
+.inscricao-linha input:focus { outline: none; border-color: var(--marca); }
+.inscricao-linha button {
+  background: var(--marca);
+  color: #fff;
+  border: 0;
+  border-radius: 7px;
+  padding: 11px 20px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.inscricao-linha button:disabled { background: var(--borda); color: var(--texto-suave); cursor: not-allowed; }
+.inscricao-erro { margin: 8px 0 0; color: #b3261e; font-size: 13.5px; }
+.rodape-fim { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; color: var(--texto-suave); font-size: 14px; border-top: 1px solid var(--borda); padding-top: 20px; }
 
 @media (max-width: 820px) {
   .heroi h1 { font-size: 34px; }
