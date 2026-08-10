@@ -1,7 +1,7 @@
 # Vitrine — Landing
 
-Landing page da Vitrine em **HTML/CSS puro**, sem framework nem build. Projeto-alvo
-da PoC Squad Sintética — é aqui que a squad de agentes trabalha.
+Landing page da Vitrine em **HTML/CSS puro**, sem framework nem build. Protótipo
+de demonstração.
 
 ```
 index.html    a página inteira
