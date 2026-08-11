@@ -126,8 +126,8 @@
 
     <footer class="rodape">
       <div class="container rodape-conteudo">
-        <!-- Inscrição de novidades. Hoje NÃO valida nada: o botão fica sempre
-             habilitado e o clique só limpa o campo. É o alvo do trabalho. -->
+        <!-- Inscrição de novidades. Agora validada em tempo real pelo script
+             js/inscricao.mjs. O botão só habilita com e-mail válido. -->
         <form class="inscricao" onsubmit="return false">
           <label for="email-inscricao">Receba novidades da Vitrine</label>
           <div class="inscricao-linha">
@@ -139,7 +139,7 @@
             />
             <button id="btn-inscrever" type="submit">Inscrever</button>
           </div>
-          <p id="erro-email" class="inscricao-erro" hidden></p>
+          <p id="erro-email" class="inscricao-erro" hidden role="alert">Informe um e-mail com domínio completo, como voce@empresa.com.br</p>
         </form>
         <div class="rodape-fim">
           <span>Vitrine · protótipo de demonstração</span>
@@ -147,5 +147,7 @@
         </div>
       </div>
     </footer>
+
+    <script type="module" src="js/inscricao.mjs"></script>
   </body>
 </html>
