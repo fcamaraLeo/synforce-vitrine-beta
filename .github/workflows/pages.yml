@@ -1,32 +1,55 @@
-name: Deploy no GitHub Pages
+name: Pages — produção e prévias de PR
 
-# A landing é HTML puro, sem build: a Action só empacota os arquivos e
-# publica. A cada push na main, redeploya sozinha.
+# Dois destinos no mesmo site do GitHub Pages, servidos do ramo `gh-pages`:
+#   · produção  → raiz            (o que está na main; a versão final)
+#   · prévia    → /pr-preview/pr-N (o que um PR entrega, para conferir ANTES
+#                                    de aprovar o gate; some sozinha no merge)
+#
+# A landing é HTML puro, sem build: publicamos os arquivos como estão.
+
 on:
   push:
     branches: [main]
+  pull_request:
+    types: [opened, synchronize, reopened, closed]
   workflow_dispatch:
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: write        # escrever no ramo gh-pages
+  pull-requests: write   # a prévia comenta a URL no PR
 
+# Uma escrita no gh-pages por vez: produção e prévias compartilham o ramo, e
+# empurrões simultâneos se atropelariam. Enfileira em vez de cancelar.
 concurrency:
-  group: pages
-  cancel-in-progress: true
+  group: gh-pages-escrita
+  cancel-in-progress: false
 
 jobs:
-  deploy:
+  producao:
+    if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/upload-pages-artifact@v3
+      - uses: peaceiris/actions-gh-pages@v4
         with:
-          # a raiz do repo é o site (index.html + estilos.css)
-          path: .
-      - id: deployment
-        uses: actions/deploy-pages@v4
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: .
+          publish_branch: gh-pages
+          # NÃO apaga o diretório pr-preview/ ao republicar a produção.
+          keep_files: true
+          # Fora do site: o que não é a landing em si.
+          exclude_assets: '.github,testes,package-lock.json,README.md'
+          user_name: fcamaraLeo
+          user_email: leonardo.sales@fcamara.com
+          commit_message: 'deploy produção (${{ github.sha }})'
+
+  previa:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: rossjrw/pr-preview-action@v1
+        with:
+          source-dir: .
+          preview-branch: gh-pages
+          umbrella-dir: pr-preview
