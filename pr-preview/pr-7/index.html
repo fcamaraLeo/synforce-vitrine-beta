@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vitrine · Liquidação, repasse e sem planilhas no meio</title>
+    <meta
+      name="description"
+      content="A Vitrine consolida volume, aprovação e repasses num painel só, para o time financeiro parar de reconciliar arquivo por arquivo."
+    />
+    <link rel="stylesheet" href="estilos.css" />
+  </head>
+  <body>
+    <!-- Landing page da Vitrine — HTML/CSS puro, sem framework.
+         Protótipo de demonstração. -->
+    <header class="cabecalho">
+      <div class="container barra">
+        <a class="marca" href="#">
+          <span class="marca-simbolo" aria-hidden="true">◆</span> Vitrine
+        </a>
+        <nav class="menu">
+          <a href="#recursos">Recursos</a>
+          <a href="#como">Como funciona</a>
+          <a href="#numeros">Números</a>
+        </nav>
+        <a class="botao botao-claro" href="#contato">Falar com vendas</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="heroi">
+        <div class="container">
+          <p class="selo">Financeiro · Meios de pagamento</p>
+          <h1>Liquidação, repasse e sem planilhas no meio do caminho.</h1>
+          <p class="heroi-texto">
+            A Vitrine consolida volume, aprovação e repasses num painel só — para o
+            time financeiro parar de reconciliar arquivo por arquivo e voltar a
+            decidir com o número na frente.
+          </p>
+          <div class="heroi-acoes">
+            <a class="botao botao-agendar-demo" href="#contato">Agendar demonstração</a>
+            <a class="botao botao-vazado" href="#como">Ver como funciona</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="secao" id="recursos">
+        <div class="container">
+          <h2 class="secao-titulo">Um painel, o fechamento inteiro</h2>
+          <div class="grade-recursos">
+            <article class="recurso">
+              <div class="recurso-icone" aria-hidden="true">≣</div>
+              <h3>Conciliação automática</h3>
+              <p>Lotes, tarifas e estornos batidos sozinhos. Você olha a exceção, não a linha.</p>
+            </article>
+            <article class="recurso">
+              <div class="recurso-icone" aria-hidden="true">◷</div>
+              <h3>Repasse no prazo</h3>
+              <p>Cada parceiro vê o que entra e quando cai. Menos e-mail, menos disputa.</p>
+            </article>
+            <article class="recurso">
+              <div class="recurso-icone" aria-hidden="true">◧</div>
+              <h3>Trilha auditável</h3>
+              <p>Toda aprovação assinada, com hora e responsável. Fechamento que aguenta auditoria.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="secao secao-clara" id="como">
+        <div class="container">
+          <h2 class="secao-titulo">Como funciona</h2>
+          <ol class="passos">
+            <li>
+              <span class="passo-num">1</span>
+              <div>
+                <h3>Conecte a origem</h3>
+                <p>Ligue o adquirente ou o arquivo de liquidação. A Vitrine ingere e normaliza.</p>
+              </div>
+            </li>
+            <li>
+              <span class="passo-num">2</span>
+              <div>
+                <h3>Concilie</h3>
+                <p>Repasses, tarifas e estornos são batidos contra o esperado, automaticamente.</p>
+              </div>
+            </li>
+            <li>
+              <span class="passo-num">3</span>
+              <div>
+                <h3>Aprove e repasse</h3>
+                <p>Uma pessoa aprova, com a trilha registrada. O repasse sai no prazo combinado.</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="secao" id="numeros">
+        <div class="container">
+          <div class="grade-numeros">
+            <div class="numero">
+              <strong>4,8 mi</strong>
+              <span>transacionados por semana</span>
+            </div>
+            <div class="numero">
+              <strong>94,7%</strong>
+              <span>taxa de aprovação</span>
+            </div>
+            <div class="numero">
+              <strong>−72%</strong>
+              <span>tempo de fechamento</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="chamada" id="contato">
+        <div class="container">
+          <h2>Pare de reconciliar arquivo por arquivo.</h2>
+          <p>Veja a Vitrine com os seus próprios lotes numa demonstração de 30 minutos.</p>
+          <a class="botao botao-claro" href="#">Agendar demonstração</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="rodape">
+      <div class="container rodape-conteudo">
+        <!-- Inscrição de novidades. Agora validada em tempo real pelo script
+             js/inscricao.mjs. O botão só habilita com e-mail válido. -->
+        <form class="inscricao" onsubmit="return false">
+          <label for="email-inscricao">Receba novidades da Vitrine</label>
+          <div class="inscricao-linha">
+            <input
+              id="email-inscricao"
+              type="email"
+              placeholder="voce@empresa.com.br"
+              autocomplete="email"
+            />
+            <button id="btn-inscrever" type="submit">Inscrever</button>
+          </div>
+          <p id="erro-email" class="inscricao-erro" hidden role="alert">Informe um e-mail com domínio completo, como voce@empresa.com.br</p>
+        </form>
+        <div class="rodape-fim">
+          <span>Vitrine · protótipo de demonstração</span>
+          <span class="rodape-nota">Números e conteúdo fictícios.</span>
+        </div>
+      </div>
+    </footer>
+
+    <script type="module" src="js/inscricao.mjs"></script>
+  </body>
+</html>
