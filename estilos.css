@@ -3,12 +3,14 @@
 :root {
   --marca: #1f4b99;
   --marca-escura: #16376f;
+  --azul-escuro: #1f4b99;
   --texto: #14181f;
   --texto-suave: #5a6472;
   --fundo: #ffffff;
   --fundo-suave: #f4f6fa;
   --borda: #d9dfe9;
   --positivo: #1b7f53;
+  --cor-foco: #1f4b99;
 }
 
 * { box-sizing: border-box; }
@@ -42,6 +44,20 @@ a { color: inherit; }
 .botao-vazado:hover { border-color: var(--marca); color: var(--marca); }
 .botao-claro { background: #fff; color: var(--marca); }
 .botao-claro:hover { background: var(--fundo-suave); }
+
+/* ── Botão "Agendar demonstração" no heroi ──────────────────────────────── */
+.botao-agendar-demo {
+  background: var(--azul-escuro);
+  color: #fff;
+  transition: background-color 0.2s ease;
+}
+.botao-agendar-demo:hover {
+  background: var(--marca-escura);
+}
+.botao-agendar-demo:focus-visible {
+  outline: 2px solid var(--cor-foco);
+  outline-offset: 2px;
+}
 
 /* ── Cabeçalho ────────────────────────────────────────────────────────── */
 .cabecalho {
